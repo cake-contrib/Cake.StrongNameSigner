@@ -23,7 +23,12 @@
         <RepositoryUrl>https://github.com/cake-contrib/Cake.StrongNameSigner.git</RepositoryUrl>
         <PackageReleaseNotes>https://github.com/cake-contrib/Cake.StrongNameSigner/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
-
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>.\Cake.StrongNameSigner.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="stylecop.json" />
+    </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
         <PackageReference Include="stylecop.analyzers" Version="1.1.118">

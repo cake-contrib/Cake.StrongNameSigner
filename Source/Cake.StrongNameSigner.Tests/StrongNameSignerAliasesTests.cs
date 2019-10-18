@@ -1,17 +1,28 @@
+using FluentAssertions;
+using Xunit;
+
 namespace Cake.StrongNameSigner.Tests
 {
-    using System;
-    using Cake.Core;
-    using Cake.Core.IO;
-    using Cake.Testing;
-    using Xunit;
-
     public class StrongNameSignerAliasesTests
     {
         [Fact]
-        public void Need_More_Unit_Test_Implementations()
+        public void Should_Use_Same_Settings_As_Specified()
         {
-            Assert.True(false, "More unit tests need to be implemented for aliases class");
+            var fixture = new StrongNameSignerAliasesFixture();
+
+            var expected = new StrongNameSignerSettings
+            {
+                Password = "bob"
+            };
+
+            fixture.Settings = expected;
+
+            var result = fixture.Run();
+
+            result.Args.Should().ContainAll(new[]
+            {
+                $"-p \"{expected.Password}\""
+            });
         }
     }
 }

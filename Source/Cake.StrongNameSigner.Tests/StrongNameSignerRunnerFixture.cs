@@ -1,11 +1,11 @@
+using Cake.Testing.Fixtures;
+
 namespace Cake.StrongNameSigner.Tests
 {
-    using Cake.Testing.Fixtures;
-
-    public class StrongNameSignerRunnerFixture : ToolFixture<StrongNameSignerSettings>
+    internal class StrongNameSignerRunnerFixture : ToolFixture<StrongNameSignerSettings>
     {
         public StrongNameSignerRunnerFixture()
-            : base("StrongNameSigner.exe")
+            : base("StrongNameSigner.Console.exe")
         {
         }
 
