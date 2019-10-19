@@ -47,7 +47,7 @@ namespace Cake.StrongNameSigner.Tests
             result.Path.FullPath.Should().Be(expected);
         }
 
-        [Theory]
+        [WindowsTheory]
         [InlineData("C:/StrongNameSigner/StrongNameSigner.Console.exe", "C:/StrongNameSigner/StrongNameSigner.Console.exe")]
         public void Should_Use_StrongNameSigner_Runner_From_Tool_Path_If_Provided_On_Windows(string toolPath, string expected)
         {
