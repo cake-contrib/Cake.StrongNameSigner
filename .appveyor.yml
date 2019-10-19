@@ -1,44 +1,50 @@
-image:
-  - Ubuntu
-  - Visual Studio 2017
+#---------------------------------#
+#  Build Image                    #
+#---------------------------------#
+image: Visual Studio 2017
 
+#---------------------------------#
+#  Build Script                   #
+#---------------------------------#
+build_script:
+  - ps: .\build.ps1 -Target AppVeyor
+
+#---------------------------------#
+# Tests
+#---------------------------------#
+test: off
+
+#---------------------------------#
+#  Pull Requests                  #
+#---------------------------------#
 pull_requests:
   do_not_increment_build_number: true
 
+#---------------------------------#
+#  General                        #
+#---------------------------------#
 skip_branch_with_pr: true
 
-environment:
-  APPVEYOR_YML_DISABLE_PS_LINUX: true
-
+#---------------------------------#
+#        Branches to build        #
+#---------------------------------#
 branches:
+  # Whitelist
   only:
-    - master
     - develop
+    - master
     - /release\/.*/
     - /hotfix\/.*/
 
-matrix:
-  fast_finish: true
-
-test: off
-build: off
-
-build_script:
-  - ps: .\build.ps1 -Target AppVeyor
-  - sh: ./build.sh --target=AppVeyor
-
+#---------------------------------#
+#  Build Cache                    #
+#---------------------------------#
 cache:
-  - "tools -> recipe.cake,tools/packages.config"
+- tools -> recipe.cake, tools/packages.config
 
-for:
-  - matrix:
-      only:
-        - image: Ubuntu
-    environment:
-      GITHUB_PASSWORD:
-      GITTER_TOKEN:
-      MYGET_API_KEY:
-      NUGET_API_KEY:
-      SLACK_TOKEN:
-      TWITTER_ACCESS_TOKEN:
-      WYAM_ACCESS_TOKEN:
+#---------------------------------#
+#  Skip builds for doc changes    #
+#---------------------------------#
+skip_commits:
+  # Regex for matching commit message
+  message: /\(doc\).*/
