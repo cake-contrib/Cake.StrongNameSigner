@@ -41,5 +41,11 @@ namespace Cake.StrongNameSigner
         /// </summary>
         /// <value>The output directory.</value>
         public DirectoryPath OutputDirectory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the log level used when strong-name signing assemblies.
+        /// </summary>
+        /// <value>The log level for output</value>
+        public StrongNameSignerVerbosity? LogLevel { get; set; }
     }
 }

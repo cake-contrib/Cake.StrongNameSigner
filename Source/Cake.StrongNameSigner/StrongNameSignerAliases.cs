@@ -37,7 +37,8 @@ namespace Cake.StrongNameSigner
                 context.FileSystem,
                 context.Environment,
                 context.ProcessRunner,
-                context.Tools);
+                context.Tools,
+                context.Log);
 
             runner.Run(settings);
         }

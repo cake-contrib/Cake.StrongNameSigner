@@ -126,7 +126,7 @@ namespace Cake.StrongNameSigner.Tests
             var result = fixture.Run();
 
             // Then
-            result.Args.Should().Be(@"-a ""/Working/test.dll""");
+            result.Args.Should().Be(@"-a ""/Working/test.dll"" -l Silent");
         }
 
         [Fact]
@@ -139,7 +139,7 @@ namespace Cake.StrongNameSigner.Tests
             var result = fixture.Run();
 
             // Then
-            result.Args.Should().Be(@"-k ""/Working/test.snk""");
+            result.Args.Should().Be(@"-k ""/Working/test.snk"" -l Silent");
         }
 
         [Fact]
@@ -152,7 +152,7 @@ namespace Cake.StrongNameSigner.Tests
             var result = fixture.Run();
 
             // Then
-            result.Args.Should().Be(@"-p ""bob""");
+            result.Args.Should().Be(@"-p ""bob"" -l Silent");
         }
 
                 [Fact]
@@ -165,7 +165,7 @@ namespace Cake.StrongNameSigner.Tests
             var result = fixture.Run();
 
             // Then
-            result.Args.Should().Be(@"-in ""input""");
+            result.Args.Should().Be(@"-in ""input"" -l Silent");
         }
 
         [Fact]
@@ -178,7 +178,20 @@ namespace Cake.StrongNameSigner.Tests
             var result = fixture.Run();
 
             // Then
-            result.Args.Should().Be(@"-out ""/Working/output""");
+            result.Args.Should().Be(@"-out ""/Working/output"" -l Silent");
+        }
+
+        [Fact]
+        public void Should_Set_LogLevel()
+        {
+            // Given
+            var fixture = new StrongNameSignerRunnerFixture { Settings = { LogLevel = StrongNameSignerVerbosity.Changes }};
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            result.Args.Should().Be("-l Changes");
         }
     }
 }
