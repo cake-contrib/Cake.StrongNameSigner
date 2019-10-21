@@ -1,14 +1,11 @@
+using Cake.Core;
+using Cake.Core.IO;
+using Cake.Testing;
+using Moq;
+
 namespace Cake.StrongNameSigner.Tests
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cake.Core;
-    using Cake.Core.IO;
-    using Cake.Testing;
-    using Cake.Testing.Fixtures;
-    using Moq;
-
-    public class StrongNameSignerAliasesFixture : StrongNameSignerRunnerFixture
+    internal class StrongNameSignerAliasesFixture : StrongNameSignerRunnerFixture
     {
         internal ICakeContext _context;
 
@@ -31,14 +28,7 @@ namespace Cake.StrongNameSigner.Tests
 
         protected override void RunTool()
         {
-            if (Settings == null)
-            {
-                StrongNameSignerAliases.StrongNameSigner(_context);
-            }
-            else
-            {
-                StrongNameSignerAliases.StrongNameSigner(_context, Settings);
-            }
+            StrongNameSignerAliases.StrongNameSigner(_context, Settings);
         }
     }
 }
