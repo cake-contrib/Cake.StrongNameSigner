@@ -10,7 +10,8 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.StrongNameSigner",
     appVeyorAccountName: "cakecontrib",
-    shouldRunDotNetCorePack: true);
+    shouldRunDotNetCorePack: true,
+    preferredBuildProviderType: BuildProviderType.GitHubActions);
 
 BuildParameters.PrintParameters(Context);
 
