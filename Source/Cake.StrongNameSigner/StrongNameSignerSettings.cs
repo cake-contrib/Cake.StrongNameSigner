@@ -45,7 +45,7 @@ namespace Cake.StrongNameSigner
         /// <summary>
         /// Gets or sets the log level used when strong-name signing assemblies.
         /// </summary>
-        /// <value>The log level for output</value>
+        /// <value>The log level for output.</value>
         public StrongNameSignerVerbosity? LogLevel { get; set; }
     }
 }
