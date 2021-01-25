@@ -32,6 +32,10 @@
         <AdditionalFiles Include="stylecop.json" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Cake.Addin.Analyzer" Version="0.1.1">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
         <PackageReference Include="CakeContrib.Guidelines" Version="0.5.0">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
