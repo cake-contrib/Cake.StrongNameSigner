@@ -19,7 +19,6 @@
 
 # Ignore cake tools directory, except packages.config
 tools/*
-!tools/packages.config
 
 # Ignore build artifacts
 BuildArtifacts/
