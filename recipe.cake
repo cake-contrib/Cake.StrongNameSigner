@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
+#load nuget:https://pkgs.dev.azure.com/cake-contrib/Home/_packaging/addins%40Local/nuget/v3/index.json?package=Cake.Recipe&version=2.2.0-alpha0019&prerelease
 
 Environment.SetVariableNames();
 
@@ -10,10 +10,6 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.StrongNameSigner",
     appVeyorAccountName: "cakecontrib",
-    shouldRunGitVersion: true,
-    shouldExecuteGitLink: false,
-    shouldRunCodecov: true,
-    shouldDeployGraphDocumentation: false,
     shouldRunDotNetCorePack: true);
 
 BuildParameters.PrintParameters(Context);
