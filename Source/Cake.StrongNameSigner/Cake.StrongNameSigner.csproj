@@ -4,7 +4,6 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <DebugType>pdbonly</DebugType>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -17,6 +16,7 @@
         <Authors>Gary Ewan Park</Authors>
         <Copyright>Copyright © $(FullYear) — Gary Ewan Park</Copyright>
         <Description>Cake.StrongNameSigner is an Addin for Cake which allows the execution of the StrongNameSigner.Console.exe.</Description>
+        <PackageIcon>icon.png</PackageIcon>
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://cake-contrib.github.io/Cake.StrongNameSigner</PackageProjectUrl>
@@ -31,7 +31,19 @@
         <AdditionalFiles Include="stylecop.json" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Cake.Addin.Analyzer" Version="0.1.1">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
+        <PackageReference Include="CakeContrib.Guidelines" Version="0.5.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="stylecop.analyzers" Version="1.1.118">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
